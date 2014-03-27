@@ -9,7 +9,7 @@
 #import "SFOutput.h"
 
 @interface SFOutput (Private)
--(void) setup : (void (^)(BOOL)) completion stream : (const uint8_t* (^)(uint8_t *, unsigned int)) stream data : (NSData*) data;
+-(void) setup : (void (^)(BOOL)) completion stream : (const uint8_t* (^)(uint8_t *, unsigned long)) stream data : (NSData*) data;
 -(void) clear;
 @end
 
@@ -20,7 +20,7 @@
 
 #pragma mark - private
 
--(void) setup : (void (^)(BOOL)) completion stream : (const uint8_t* (^)(uint8_t *, unsigned int)) stream data : (NSData*) data {
+-(void) setup : (void (^)(BOOL)) completion stream : (const uint8_t* (^)(uint8_t *, unsigned long)) stream data : (NSData*) data {
     objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
     objc_setAssociatedObject(self, &STREAMPOINTER, stream, OBJC_ASSOCIATION_COPY_NONATOMIC);
     byteIndex = 0;
@@ -55,7 +55,7 @@
             uint8_t dataMirror[len];
             (void)memcpy(dataMirror, readBytes, len);
             
-            const uint8_t* (^displayStream)(uint8_t* buffer, unsigned int length) = objc_getAssociatedObject(self, &STREAMPOINTER);
+            const uint8_t* (^displayStream)(uint8_t* buffer, unsigned long length) = objc_getAssociatedObject(self, &STREAMPOINTER);
             len = [(NSOutputStream*)stream write:displayStream(dataMirror, len) maxLength:len];
             byteIndex += len;
             break;
@@ -81,7 +81,7 @@
 
 #pragma mark - general function
 
--(void) writeDataToPath : (NSString*) path withData : (NSData*) data withStream : (const uint8_t* (^)(uint8_t* buffer, unsigned int length)) stream completion : (void (^)(BOOL isSuccess)) completion {
+-(void) writeDataToPath : (NSString*) path withData : (NSData*) data withStream : (const uint8_t* (^)(uint8_t* buffer, unsigned long length)) stream completion : (void (^)(BOOL isSuccess)) completion {
     
     [self setup:completion stream:stream data:data];
     [self openOutputStreamWithPath:path];

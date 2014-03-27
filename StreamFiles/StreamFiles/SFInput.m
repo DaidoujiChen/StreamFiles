@@ -9,7 +9,7 @@
 #import "SFInput.h"
 
 @interface SFInput (Private)
--(void) setup : (void (^)(BOOL, NSData*)) completion stream : (const void* (^)(uint8_t*, unsigned int)) stream;
+-(void) setup : (void (^)(BOOL, NSData*)) completion stream : (const void* (^)(uint8_t*, unsigned long)) stream;
 -(void) clear;
 @end
 
@@ -19,7 +19,7 @@
 
 #pragma mark - private
 
--(void) setup : (void (^)(BOOL, NSData*)) completion stream : (const void* (^)(uint8_t*, unsigned int)) stream {
+-(void) setup : (void (^)(BOOL, NSData*)) completion stream : (const void* (^)(uint8_t*, unsigned long)) stream {
     objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
     objc_setAssociatedObject(self, &STREAMPOINTER, stream, OBJC_ASSOCIATION_COPY_NONATOMIC);
     recvData = [[NSMutableData alloc] init];
@@ -47,7 +47,7 @@
             if (len) {
                 uint8_t dataMirror[len];
                 (void)memcpy(dataMirror, buf, len);
-                const void* (^displayStream)(uint8_t* buffer, unsigned int length) = objc_getAssociatedObject(self, &STREAMPOINTER);
+                const void* (^displayStream)(uint8_t* buffer, unsigned long length) = objc_getAssociatedObject(self, &STREAMPOINTER);
                 [recvData appendBytes:displayStream(dataMirror, len) length:len];
             }
             break;
@@ -75,7 +75,7 @@
 
 #pragma mark - general function
 
--(void) readDataFromPath : (NSString*) path withStream : (const void* (^)(uint8_t* buffer, unsigned int length)) stream completion : (void (^)(BOOL isSuccess, NSData *data)) completion {
+-(void) readDataFromPath : (NSString*) path withStream : (const void* (^)(uint8_t* buffer, unsigned long length)) stream completion : (void (^)(BOOL isSuccess, NSData *data)) completion {
     
     [self setup:completion stream:stream];
     [self openInputStreamWithPath:path];

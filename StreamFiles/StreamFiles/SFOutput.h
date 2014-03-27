@@ -12,6 +12,6 @@
 
 @interface SFOutput : SFBase
 
--(void) writeDataToPath : (NSString*) path withData : (NSData*) data withStream : (const uint8_t* (^)(uint8_t* buffer, unsigned int length)) stream completion : (void (^)(BOOL isSuccess)) completion;
+-(void) writeDataToPath : (NSString*) path withData : (NSData*) data withStream : (const uint8_t* (^)(uint8_t* buffer, unsigned long length)) stream completion : (void (^)(BOOL isSuccess)) completion;
 
 @end

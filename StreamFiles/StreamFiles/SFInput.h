@@ -12,6 +12,6 @@
 
 @interface SFInput : SFBase
 
--(void) readDataFromPath : (NSString*) path withStream : (const void* (^)(uint8_t* buffer, unsigned int length)) stream completion : (void (^)(BOOL isSuccess, NSData *data)) completion;
+-(void) readDataFromPath : (NSString*) path withStream : (const void* (^)(uint8_t* buffer, unsigned long length)) stream completion : (void (^)(BOOL isSuccess, NSData *data)) completion;
 
 @end

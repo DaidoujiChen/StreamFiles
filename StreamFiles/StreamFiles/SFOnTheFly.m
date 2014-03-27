@@ -9,7 +9,7 @@
 #import "SFOnTheFly.h"
 
 @interface SFOnTheFly (Private)
--(void) setup : (void (^)(BOOL)) completion stream : (const void* (^)(uint8_t*, unsigned int)) stream toPath : (NSString*) toPath;
+-(void) setup : (void (^)(BOOL)) completion stream : (const void* (^)(uint8_t*, unsigned long)) stream toPath : (NSString*) toPath;
 -(void) clear;
 @end
 
@@ -23,7 +23,7 @@
 
 #pragma mark - private
 
--(void) setup : (void (^)(BOOL)) completion stream : (const void* (^)(uint8_t*, unsigned int)) stream toPath : (NSString*) toPath {
+-(void) setup : (void (^)(BOOL)) completion stream : (const void* (^)(uint8_t*, unsigned long)) stream toPath : (NSString*) toPath {
     objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
     objc_setAssociatedObject(self, &STREAMPOINTER, stream, OBJC_ASSOCIATION_COPY_NONATOMIC);
     
@@ -60,7 +60,7 @@
                     uint8_t dataMirror[len];
                     (void)memcpy(dataMirror, buf, len);
                     
-                    const void* (^displayStream)(uint8_t* buffer, unsigned int length) = objc_getAssociatedObject(self, &STREAMPOINTER);
+                    const void* (^displayStream)(uint8_t* buffer, unsigned long length) = objc_getAssociatedObject(self, &STREAMPOINTER);
                     [dataPool appendBytes:displayStream(dataMirror, len) length:len];
                 }
             } else {
@@ -127,7 +127,7 @@
 
 -(void) readFromPath : (NSString*) fromPath
          writeToPath : (NSString*) toPath
-          withStream : (const void* (^)(uint8_t* buffer, unsigned int length)) stream
+          withStream : (const void* (^)(uint8_t* buffer, unsigned long length)) stream
           completion : (void (^)(BOOL isSuccess)) completion {
     
     [self setup:completion stream:stream toPath:toPath];
