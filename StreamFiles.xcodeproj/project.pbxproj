@@ -13,14 +13,18 @@
 		01A2E4AA18E269880092C0BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 01A2E4A818E269880092C0BB /* InfoPlist.strings */; };
 		01A2E4AC18E269880092C0BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2E4AB18E269880092C0BB /* main.m */; };
 		01A2E4B018E269880092C0BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2E4AF18E269880092C0BB /* AppDelegate.m */; };
-		01A2E4B318E269880092C0BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01A2E4B118E269880092C0BB /* Main.storyboard */; };
-		01A2E4B618E269880092C0BB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2E4B518E269880092C0BB /* ViewController.m */; };
 		01A2E4B818E269880092C0BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01A2E4B718E269880092C0BB /* Images.xcassets */; };
 		01A2E4BF18E269880092C0BB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A2E4BE18E269880092C0BB /* XCTest.framework */; };
 		01A2E4C018E269880092C0BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A2E49F18E269880092C0BB /* Foundation.framework */; };
 		01A2E4C118E269880092C0BB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A2E4A318E269880092C0BB /* UIKit.framework */; };
 		01A2E4C918E269880092C0BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 01A2E4C718E269880092C0BB /* InfoPlist.strings */; };
 		01A2E4CB18E269880092C0BB /* StreamFilesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2E4CA18E269880092C0BB /* StreamFilesTests.m */; };
+		01A2E4D718E269C70092C0BB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2E4D518E269C70092C0BB /* MainViewController.m */; };
+		01A2E4D818E269C70092C0BB /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01A2E4D618E269C70092C0BB /* MainViewController.xib */; };
+		01A2E4DC18E26B2B0092C0BB /* SFInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2E4DB18E26B2B0092C0BB /* SFInput.m */; };
+		01A2E4DF18E26D3E0092C0BB /* SFOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2E4DE18E26D3E0092C0BB /* SFOutput.m */; };
+		01A2E4E218E270910092C0BB /* SFManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2E4E118E270910092C0BB /* SFManager.m */; };
+		01A2E4E518E273320092C0BB /* SFManager+AccessObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2E4E418E273320092C0BB /* SFManager+AccessObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,15 +48,23 @@
 		01A2E4AD18E269880092C0BB /* StreamFiles-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StreamFiles-Prefix.pch"; sourceTree = "<group>"; };
 		01A2E4AE18E269880092C0BB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		01A2E4AF18E269880092C0BB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		01A2E4B218E269880092C0BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		01A2E4B418E269880092C0BB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		01A2E4B518E269880092C0BB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		01A2E4B718E269880092C0BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		01A2E4BD18E269880092C0BB /* StreamFilesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StreamFilesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		01A2E4BE18E269880092C0BB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		01A2E4C618E269880092C0BB /* StreamFilesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StreamFilesTests-Info.plist"; sourceTree = "<group>"; };
 		01A2E4C818E269880092C0BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		01A2E4CA18E269880092C0BB /* StreamFilesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StreamFilesTests.m; sourceTree = "<group>"; };
+		01A2E4D418E269C70092C0BB /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		01A2E4D518E269C70092C0BB /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		01A2E4D618E269C70092C0BB /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		01A2E4DA18E26B2B0092C0BB /* SFInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFInput.h; path = StreamFiles/SFInput.h; sourceTree = "<group>"; };
+		01A2E4DB18E26B2B0092C0BB /* SFInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFInput.m; path = StreamFiles/SFInput.m; sourceTree = "<group>"; };
+		01A2E4DD18E26D3E0092C0BB /* SFOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFOutput.h; path = StreamFiles/SFOutput.h; sourceTree = "<group>"; };
+		01A2E4DE18E26D3E0092C0BB /* SFOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFOutput.m; path = StreamFiles/SFOutput.m; sourceTree = "<group>"; };
+		01A2E4E018E270910092C0BB /* SFManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFManager.h; path = StreamFiles/SFManager.h; sourceTree = "<group>"; };
+		01A2E4E118E270910092C0BB /* SFManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFManager.m; path = StreamFiles/SFManager.m; sourceTree = "<group>"; };
+		01A2E4E318E273320092C0BB /* SFManager+AccessObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SFManager+AccessObject.h"; path = "StreamFiles/SFManager+AccessObject.h"; sourceTree = "<group>"; };
+		01A2E4E418E273320092C0BB /* SFManager+AccessObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SFManager+AccessObject.m"; path = "StreamFiles/SFManager+AccessObject.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +124,12 @@
 		01A2E4A518E269880092C0BB /* StreamFiles */ = {
 			isa = PBXGroup;
 			children = (
+				01A2E4D918E26AC60092C0BB /* StreamFiles */,
 				01A2E4AE18E269880092C0BB /* AppDelegate.h */,
 				01A2E4AF18E269880092C0BB /* AppDelegate.m */,
-				01A2E4B118E269880092C0BB /* Main.storyboard */,
-				01A2E4B418E269880092C0BB /* ViewController.h */,
-				01A2E4B518E269880092C0BB /* ViewController.m */,
+				01A2E4D418E269C70092C0BB /* MainViewController.h */,
+				01A2E4D518E269C70092C0BB /* MainViewController.m */,
+				01A2E4D618E269C70092C0BB /* MainViewController.xib */,
 				01A2E4B718E269880092C0BB /* Images.xcassets */,
 				01A2E4A618E269880092C0BB /* Supporting Files */,
 			);
@@ -150,6 +163,21 @@
 				01A2E4C718E269880092C0BB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		01A2E4D918E26AC60092C0BB /* StreamFiles */ = {
+			isa = PBXGroup;
+			children = (
+				01A2E4DA18E26B2B0092C0BB /* SFInput.h */,
+				01A2E4DB18E26B2B0092C0BB /* SFInput.m */,
+				01A2E4DD18E26D3E0092C0BB /* SFOutput.h */,
+				01A2E4DE18E26D3E0092C0BB /* SFOutput.m */,
+				01A2E4E018E270910092C0BB /* SFManager.h */,
+				01A2E4E118E270910092C0BB /* SFManager.m */,
+				01A2E4E318E273320092C0BB /* SFManager+AccessObject.h */,
+				01A2E4E418E273320092C0BB /* SFManager+AccessObject.m */,
+			);
+			name = StreamFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,8 +257,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				01A2E4B818E269880092C0BB /* Images.xcassets in Resources */,
+				01A2E4D818E269C70092C0BB /* MainViewController.xib in Resources */,
 				01A2E4AA18E269880092C0BB /* InfoPlist.strings in Resources */,
-				01A2E4B318E269880092C0BB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,8 +277,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01A2E4B618E269880092C0BB /* ViewController.m in Sources */,
+				01A2E4E218E270910092C0BB /* SFManager.m in Sources */,
 				01A2E4B018E269880092C0BB /* AppDelegate.m in Sources */,
+				01A2E4DF18E26D3E0092C0BB /* SFOutput.m in Sources */,
+				01A2E4DC18E26B2B0092C0BB /* SFInput.m in Sources */,
+				01A2E4D718E269C70092C0BB /* MainViewController.m in Sources */,
+				01A2E4E518E273320092C0BB /* SFManager+AccessObject.m in Sources */,
 				01A2E4AC18E269880092C0BB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,14 +312,6 @@
 				01A2E4A918E269880092C0BB /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		01A2E4B118E269880092C0BB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				01A2E4B218E269880092C0BB /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		01A2E4C718E269880092C0BB /* InfoPlist.strings */ = {
