@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SFOutput : NSObject <NSStreamDelegate> {
-    NSMutableData *sendData;
-    unsigned int byteIndex;
-}
+#import "SFBase.h"
+
+@interface SFOutput : SFBase
 
 -(void) writeDataToPath : (NSString*) path withData : (NSData*) data withStream : (const uint8_t* (^)(uint8_t* buffer, unsigned int length)) stream completion : (void (^)(BOOL isSuccess)) completion;
 

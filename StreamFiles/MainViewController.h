@@ -9,12 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "SFManager.h"
-#import "SFInput.h"
-#import "SFOutput.h"
 
-@interface MainViewController : UIViewController {
-    SFInput *input;
-    SFOutput *output;
-}
+@interface MainViewController : UIViewController
 
 @end

@@ -8,14 +8,27 @@
 
 #import "SFInput.h"
 
-#import <objc/runtime.h>
+@interface SFInput (Private)
+-(void) setup : (void (^)(BOOL, NSData*)) completion stream : (const void* (^)(uint8_t*, unsigned int)) stream;
+-(void) clear;
+@end
 
-@implementation SFInput
+@implementation SFInput {
+    NSMutableData *recvData;
+}
 
-#define READSIZEPERTIME 1024
+#pragma mark - private
 
-static const char COMPLETIONPOINTER;
-static const char STREAMPOINTER;
+-(void) setup : (void (^)(BOOL, NSData*)) completion stream : (const void* (^)(uint8_t*, unsigned int)) stream {
+    objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, &STREAMPOINTER, stream, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    recvData = [[NSMutableData alloc] init];
+}
+
+-(void) clear {
+    recvData = nil;
+    objc_removeAssociatedObjects(self);
+}
 
 #pragma mark - NSStreamDelegate
 
@@ -28,15 +41,12 @@ static const char STREAMPOINTER;
             break;
         case NSStreamEventHasBytesAvailable:
         {
-            if (!recvData) recvData = [[NSMutableData alloc] init];
-            
-            uint8_t buf[READSIZEPERTIME];
+            uint8_t buf[SIZEPERTIME];
             NSUInteger len = 0;
-            len = [(NSInputStream*)stream read:buf maxLength:READSIZEPERTIME];
+            len = [(NSInputStream*)stream read:buf maxLength:SIZEPERTIME];
             if (len) {
                 uint8_t dataMirror[len];
                 (void)memcpy(dataMirror, buf, len);
-                
                 const void* (^displayStream)(uint8_t* buffer, unsigned int length) = objc_getAssociatedObject(self, &STREAMPOINTER);
                 [recvData appendBytes:displayStream(dataMirror, len) length:len];
             }
@@ -48,22 +58,16 @@ static const char STREAMPOINTER;
         {
             void (^completion)(BOOL isSuccess, NSData *data) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
             completion(NO, nil);
-            [stream close];
-            [stream removeFromRunLoop:[NSRunLoop currentRunLoop]
-                              forMode:NSDefaultRunLoopMode];
-            stream = nil;
-            recvData = nil;
+            [self terminateStream:stream];
+            [self clear];
             break;
         }
         case NSStreamEventEndEncountered:
         {
             void (^completion)(BOOL isSuccess, NSData *data) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
             completion(YES, recvData);
-            [stream close];
-            [stream removeFromRunLoop:[NSRunLoop currentRunLoop]
-                              forMode:NSDefaultRunLoopMode];
-            stream = nil;
-            recvData = nil;
+            [self terminateStream:stream];
+            [self clear];
             break;
         }
     }
@@ -73,14 +77,9 @@ static const char STREAMPOINTER;
 
 -(void) readDataFromPath : (NSString*) path withStream : (const void* (^)(uint8_t* buffer, unsigned int length)) stream completion : (void (^)(BOOL isSuccess, NSData *data)) completion {
     
-    objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    objc_setAssociatedObject(self, &STREAMPOINTER, stream, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    [self setup:completion stream:stream];
+    [self openInputStreamWithPath:path];
     
-    NSInputStream *iStream = [NSInputStream inputStreamWithFileAtPath:path];
-    [iStream setDelegate:self];
-    [iStream scheduleInRunLoop:[NSRunLoop currentRunLoop]
-                       forMode:NSDefaultRunLoopMode];
-    [iStream open];
 }
 
 @end

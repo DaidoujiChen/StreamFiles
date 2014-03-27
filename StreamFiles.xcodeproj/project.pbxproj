@@ -25,6 +25,8 @@
 		01A2E4DF18E26D3E0092C0BB /* SFOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2E4DE18E26D3E0092C0BB /* SFOutput.m */; };
 		01A2E4E218E270910092C0BB /* SFManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2E4E118E270910092C0BB /* SFManager.m */; };
 		01A2E4E518E273320092C0BB /* SFManager+AccessObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2E4E418E273320092C0BB /* SFManager+AccessObject.m */; };
+		01F3CED318E3C32100474D88 /* SFOnTheFly.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F3CED218E3C32100474D88 /* SFOnTheFly.m */; };
+		01F3CED618E3CC1A00474D88 /* SFBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F3CED518E3CC1A00474D88 /* SFBase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,10 @@
 		01A2E4E118E270910092C0BB /* SFManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFManager.m; path = StreamFiles/SFManager.m; sourceTree = "<group>"; };
 		01A2E4E318E273320092C0BB /* SFManager+AccessObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SFManager+AccessObject.h"; path = "StreamFiles/SFManager+AccessObject.h"; sourceTree = "<group>"; };
 		01A2E4E418E273320092C0BB /* SFManager+AccessObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SFManager+AccessObject.m"; path = "StreamFiles/SFManager+AccessObject.m"; sourceTree = "<group>"; };
+		01F3CED118E3C32100474D88 /* SFOnTheFly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFOnTheFly.h; path = StreamFiles/SFOnTheFly.h; sourceTree = "<group>"; };
+		01F3CED218E3C32100474D88 /* SFOnTheFly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFOnTheFly.m; path = StreamFiles/SFOnTheFly.m; sourceTree = "<group>"; };
+		01F3CED418E3CC1A00474D88 /* SFBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFBase.h; path = StreamFiles/SFBase.h; sourceTree = "<group>"; };
+		01F3CED518E3CC1A00474D88 /* SFBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFBase.m; path = StreamFiles/SFBase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,10 +174,14 @@
 		01A2E4D918E26AC60092C0BB /* StreamFiles */ = {
 			isa = PBXGroup;
 			children = (
+				01F3CED418E3CC1A00474D88 /* SFBase.h */,
+				01F3CED518E3CC1A00474D88 /* SFBase.m */,
 				01A2E4DA18E26B2B0092C0BB /* SFInput.h */,
 				01A2E4DB18E26B2B0092C0BB /* SFInput.m */,
 				01A2E4DD18E26D3E0092C0BB /* SFOutput.h */,
 				01A2E4DE18E26D3E0092C0BB /* SFOutput.m */,
+				01F3CED118E3C32100474D88 /* SFOnTheFly.h */,
+				01F3CED218E3C32100474D88 /* SFOnTheFly.m */,
 				01A2E4E018E270910092C0BB /* SFManager.h */,
 				01A2E4E118E270910092C0BB /* SFManager.m */,
 				01A2E4E318E273320092C0BB /* SFManager+AccessObject.h */,
@@ -278,8 +288,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				01A2E4E218E270910092C0BB /* SFManager.m in Sources */,
+				01F3CED318E3C32100474D88 /* SFOnTheFly.m in Sources */,
 				01A2E4B018E269880092C0BB /* AppDelegate.m in Sources */,
 				01A2E4DF18E26D3E0092C0BB /* SFOutput.m in Sources */,
+				01F3CED618E3CC1A00474D88 /* SFBase.m in Sources */,
 				01A2E4DC18E26B2B0092C0BB /* SFInput.m in Sources */,
 				01A2E4D718E269C70092C0BB /* MainViewController.m in Sources */,
 				01A2E4E518E273320092C0BB /* SFManager+AccessObject.m in Sources */,
@@ -480,6 +492,7 @@
 				01A2E4D018E269880092C0BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		01A2E4D118E269880092C0BB /* Build configuration list for PBXNativeTarget "StreamFilesTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +501,7 @@
 				01A2E4D318E269880092C0BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

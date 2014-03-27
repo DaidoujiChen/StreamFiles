@@ -12,6 +12,7 @@
 
 #import "SFInput.h"
 #import "SFOutput.h"
+#import "SFOnTheFly.h"
 
 @implementation SFManager
 
@@ -41,6 +42,23 @@
                      completion(isSuccess);
                      [[self streamPool] removeObject:output];
                  }];
+}
+
++(void) readFromPath : (NSString*) fromPath
+         writeToPath : (NSString*) toPath
+          withStream : (const void* (^)(uint8_t* buffer, unsigned int length)) stream
+          completion : (void (^)(BOOL isSuccess)) completion {
+    
+    SFOnTheFly *fly = [SFOnTheFly new];
+    [[self streamPool] addObject:fly];
+    
+    [fly readFromPath:fromPath
+          writeToPath:toPath
+           withStream:stream
+           completion:^(BOOL isSuccess) {
+               completion(isSuccess);
+               [[self streamPool] removeObject:fly];
+           }];
 }
 
 @end
