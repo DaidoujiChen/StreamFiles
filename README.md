@@ -1,7 +1,7 @@
 StreamFiles
 ===========
 
-StreamFiles allow you to Read / write file and change it's data Immediately.
+StreamFiles allow you to Read / write file and change contain data Immediately.
 
 DaidoujiChen
 
